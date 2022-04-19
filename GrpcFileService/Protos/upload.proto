@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcFileService";
+
+package upload;
+
+service Uploader {
+  rpc UploadFile (stream UploadFileRequest) returns (UploadFileResponse);
+}
+
+message UploadFileRequest {
+  FileMetadata metadata = 1;
+  bytes data = 2;
+}
+
+message FileMetadata {
+  string file_name = 1;
+}
+
+message UploadFileResponse {
+  string id = 1;
+}

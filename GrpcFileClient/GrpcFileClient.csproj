@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.20.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.45.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.45.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GrpcFileService\GrpcFileService.csproj" />
+  </ItemGroup>
+	
+	<ItemGroup>
+		<Protobuf Include="..\GrpcFileService\Protos\upload.proto" ProtoRoot="..\GrpcFileService" GrpcServices="Client">
+			<Link>Protos\upload.proto</Link>
+		</Protobuf>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Reference Include="RSI_lab2">
+	    <HintPath>..\..\c#_mydata\RSI_lab2.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+</Project>
